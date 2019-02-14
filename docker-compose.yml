@@ -22,11 +22,11 @@ services:
 
   hbase:
     container_name: hbase
-    image: harisekhon/hbase:2.1
-    ports:
-      - 2181:2181
+    image: dajobe/hbase:latest
+    # ports:
+    #   - 2181:2181
     #   - 8080:8080
-      - 8085:8085
+    #   - 8085:8085
     #   - 9090:9090
     #   - 9095:9095
     #   - 16000:16000
@@ -35,4 +35,6 @@ services:
     #   - 16030:16030
     #   - 16301:16301
     volumes:
-      - ./data:/hbase-data
+      - ./data:/data
+    # logging:
+    #   driver: none
