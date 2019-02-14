@@ -1,0 +1,38 @@
+version: "3.5"
+
+services:
+  app:
+    container_name: app
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.dev
+    volumes:
+      - ./:/src/go
+      - $GOPATH/pkg/mod:/go/pkg/mod
+    ports:
+      - 8080:8080
+  #   environment:
+  #     - APP_PORT: 8080
+  #     - APP_ENV: development
+    working_dir: /src/go
+    command: sh -c './wait-for.sh hbase:8085'
+    command: reflex -c reflex.conf
+    depends_on:
+      - hbase
+
+  hbase:
+    container_name: hbase
+    image: harisekhon/hbase:2.1
+    ports:
+      - 2181:2181
+    #   - 8080:8080
+      - 8085:8085
+    #   - 9090:9090
+    #   - 9095:9095
+    #   - 16000:16000
+    #   - 16010:16010
+    #   - 16201:16201
+    #   - 16030:16030
+    #   - 16301:16301
+    volumes:
+      - ./data:/hbase-data

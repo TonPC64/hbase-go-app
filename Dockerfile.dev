@@ -1,0 +1,7 @@
+FROM golang:1.11.1-alpine3.8
+
+ENV CGO_ENABLED=0
+
+# install git, curl, reflex
+RUN apk add --no-cache git curl && \
+  go get -u github.com/cespare/reflex
