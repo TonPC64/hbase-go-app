@@ -7,6 +7,7 @@ require (
 	github.com/golang/protobuf v1.2.0 // indirect
 	github.com/mattn/go-isatty v0.0.4 // indirect
 	github.com/samuel/go-zookeeper v0.0.0-20180130194729-c4fab1ac1bec // indirect
+	github.com/sdming/goh v0.0.0-20130319082738-7071d6d7ab1f
 	github.com/sirupsen/logrus v1.3.0 // indirect
 	github.com/tsuna/gohbase v0.0.0-20190201102810-d3184c1526df
 	github.com/ugorji/go/codec v0.0.0-20190204201341-e444a5086c43 // indirect
