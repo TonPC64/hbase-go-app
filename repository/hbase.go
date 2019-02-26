@@ -18,7 +18,7 @@ type HbaseClient struct {
 // NewHbase constuct hbase client
 func NewHbase(host, table, columnFamily string) *HbaseClient {
 	return &HbaseClient{
-		client: gohbase.NewClient("hbase"),
+		client: gohbase.NewClient(host),
 		table:  table,
 		cf:     columnFamily,
 	}

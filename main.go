@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/TonPC64/hbase-go-app/repository"
 )
 
@@ -9,7 +11,8 @@ func main() {
 	// 	table    = "messages"
 	// 	qulifier = "m"
 	// )
-	client := repository.NewHbase("hbase", "messages", "m")
-	// value := `{"id":"85556","threadId":"885999_34344343","sender":"885999","recipient":"34344343","timestamp":1538363596,"message":{"type":"text","text":"hello world"},"senderType":"user","channelId":"885999"}`
+	client := repository.NewHbase(os.Getenv("HBASE_HOST"), os.Getenv("HBASE_TABLE"), "f")
+	value := `testdata`
+	client.Put("threadId", "1", []byte(value))
 	client.GetCell("threadId", "1")
 }
